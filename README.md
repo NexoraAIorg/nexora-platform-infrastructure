@@ -1,4 +1,10 @@
-# 🚀 Nexora AI Platform Infrastructure
+# 🚀 Nexora AI
+
+### Enterprise Platform Engineering | Cloud Infrastructure | Kubernetes | DevSecOps | AI Infrastructure
+
+Build once. Scale everywhere.
+
+Production-inspired cloud platform built using modern Platform Engineering practices.
 
 > Enterprise-grade AWS Platform Infrastructure built with Terraform
 
