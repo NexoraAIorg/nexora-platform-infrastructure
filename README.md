@@ -6,7 +6,7 @@
 
 An enterprise-grade cloud platform built from scratch to explore modern Platform Engineering, Cloud Infrastructure, Kubernetes, DevSecOps, Observability, and AI Infrastructure using production-inspired engineering practices.
 
-![Terraform](https://img.shields.io/badge/Terraform-1.12+-623CE4?style=for-the-badge&logo=terraform)
+![Terraform](https://img.shields.io/badge/Terraform-v1.15+-623CE4?style=for-the-badge&logo=terraform)
 ![AWS](https://img.shields.io/badge/AWS-Cloud-orange?style=for-the-badge&logo=amazonaws)
 ![Kubernetes](https://img.shields.io/badge/Kubernetes-EKS-326CE5?style=for-the-badge&logo=kubernetes)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
