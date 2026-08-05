@@ -1,6 +1,6 @@
 resource "aws_security_group" "alb" {
 
-  name        = "${local.name}-alb-sg"
+  name = "${local.name}-alb-sg"
 
   description = "Application Load Balancer Security Group"
 

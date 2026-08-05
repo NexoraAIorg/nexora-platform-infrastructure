@@ -25,3 +25,15 @@ output "redis_endpoint" {
 output "opensearch_endpoint" {
   value = module.opensearch.domain_endpoint
 }
+
+#############################################
+# RDS
+#############################################
+
+output "rds_endpoint" {
+  value = module.rds.db_endpoint
+}
+
+output "rds_port" {
+  value = module.rds.db_port
+}

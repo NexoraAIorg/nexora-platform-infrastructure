@@ -153,18 +153,23 @@ module "rds" {
   project_name = var.project_name
   environment  = var.environment
 
+  vpc_id = module.networking.vpc_id
+
   private_subnet_ids = module.networking.private_db_subnet_ids
 
-  security_group_ids = [
+  database_security_group_ids = [
     module.security.database_security_group_id
   ]
 
+  db_name     = var.db_name
   db_username = var.db_username
-
   db_password = var.db_password
 
-  common_tags = local.common_tags
+  instance_class    = var.db_instance_class
+  allocated_storage = var.db_allocated_storage
+  multi_az          = var.db_multi_az
 
+  common_tags = local.common_tags
 }
 
 module "redis" {

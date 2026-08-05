@@ -34,11 +34,40 @@ variable "domain_name" {
   type = string
 }
 
+#############################################
+# RDS
+#############################################
+
+variable "db_name" {
+  description = "Database name"
+  type        = string
+}
+
 variable "db_username" {
-  type = string
+  description = "Master username"
+  type        = string
 }
 
 variable "db_password" {
-  type      = string
-  sensitive = true
+  description = "Master password"
+  type        = string
+  sensitive   = true
+}
+
+variable "db_instance_class" {
+  description = "RDS instance class"
+  type        = string
+  default     = "db.t3.micro"
+}
+
+variable "db_allocated_storage" {
+  description = "Allocated storage (GB)"
+  type        = number
+  default     = 20
+}
+
+variable "db_multi_az" {
+  description = "Enable Multi-AZ"
+  type        = bool
+  default     = false
 }

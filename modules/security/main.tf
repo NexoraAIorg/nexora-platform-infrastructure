@@ -4,7 +4,7 @@
 
 resource "aws_security_group" "eks" {
 
-  name        = "${local.name}-eks-sg"
+  name = "${local.name}-eks-sg"
 
   description = "Security Group for EKS Cluster"
 

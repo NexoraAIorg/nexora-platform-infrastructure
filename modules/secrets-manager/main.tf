@@ -1,6 +1,6 @@
 resource "aws_secretsmanager_secret" "application" {
 
-  name        = "${local.name}-application-secret"
+  name = "${local.name}-application-secret"
 
   description = "Application secrets"
 

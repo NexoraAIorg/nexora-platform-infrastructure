@@ -1,0 +1,16 @@
+name: Gitleaks
+
+on:
+  push:
+    branches:
+      - develop
+      - main
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: gitleaks/gitleaks-action@v2

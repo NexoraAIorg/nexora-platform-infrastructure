@@ -9,9 +9,9 @@ resource "aws_vpc" "this" {
   enable_dns_hostnames = true
 
   tags = merge(
-    local.tags,
+    local.common_tags,
     {
-      Name = "${local.name}-vpc"
+      Name = "${local.name_prefix}-vpc"
     }
   )
 }
@@ -25,9 +25,9 @@ resource "aws_internet_gateway" "this" {
   vpc_id = aws_vpc.this.id
 
   tags = merge(
-    local.tags,
+    local.common_tags,
     {
-      Name = "${local.name}-igw"
+      Name = "${local.name_prefix}-igw"
     }
   )
 }
@@ -49,9 +49,9 @@ resource "aws_subnet" "public" {
   map_public_ip_on_launch = true
 
   tags = merge(
-    local.tags,
+    local.common_tags,
     {
-      Name = "${local.name}-public-${count.index + 1}"
+      Name = "${local.name_prefix}-public-${count.index + 1}"
       Tier = "Public"
     }
   )
@@ -72,9 +72,9 @@ resource "aws_subnet" "private_app" {
   availability_zone = var.availability_zones[count.index]
 
   tags = merge(
-    local.tags,
+    local.common_tags,
     {
-      Name = "${local.name}-private-app-${count.index + 1}"
+      Name = "${local.name_prefix}-private-app-${count.index + 1}"
       Tier = "Application"
     }
   )
@@ -95,9 +95,9 @@ resource "aws_subnet" "private_db" {
   availability_zone = var.availability_zones[count.index]
 
   tags = merge(
-    local.tags,
+    local.common_tags,
     {
-      Name = "${local.name}-private-db-${count.index + 1}"
+      Name = "${local.name_prefix}-private-db-${count.index + 1}"
       Tier = "Database"
     }
   )
@@ -118,9 +118,9 @@ resource "aws_eip" "nat" {
   ]
 
   tags = merge(
-    local.tags,
+    local.common_tags,
     {
-      Name = "${local.name}-nat-eip"
+      Name = "${local.name_prefix}-nat-eip"
     }
   )
 }
@@ -138,9 +138,9 @@ resource "aws_nat_gateway" "this" {
   subnet_id = aws_subnet.public[0].id
 
   tags = merge(
-    local.tags,
+    local.common_tags,
     {
-      Name = "${local.name}-nat"
+      Name = "${local.name_prefix}-nat"
     }
   )
 }
@@ -162,9 +162,9 @@ resource "aws_route_table" "public" {
   }
 
   tags = merge(
-    local.tags,
+    local.common_tags,
     {
-      Name = "${local.name}-public-rt"
+      Name = "${local.name_prefix}-public-rt"
     }
   )
 }
@@ -192,9 +192,9 @@ resource "aws_route_table" "private" {
   }
 
   tags = merge(
-    local.tags,
+    local.common_tags,
     {
-      Name = "${local.name}-private-rt"
+      Name = "${local.name_prefix}-private-rt"
     }
   )
 }

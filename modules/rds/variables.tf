@@ -1,44 +1,64 @@
 variable "project_name" {
-  type = string
+  description = "Project name."
+  type        = string
 }
 
 variable "environment" {
-  type = string
+  description = "Deployment environment."
+  type        = string
+}
+
+variable "vpc_id" {
+  description = "VPC ID."
+  type        = string
 }
 
 variable "private_subnet_ids" {
-  type = list(string)
+  description = "Private database subnet IDs."
+  type        = list(string)
 }
 
-variable "security_group_ids" {
-  type = list(string)
+variable "database_security_group_ids" {
+  description = "Database security group IDs."
+  type        = list(string)
 }
 
 variable "db_name" {
-  type    = string
-  default = "nexora"
+  description = "Database name."
+  type        = string
 }
 
 variable "db_username" {
-  type = string
+  description = "Master username."
+  type        = string
 }
 
 variable "db_password" {
-  type      = string
-  sensitive = true
+  description = "Master password."
+  type        = string
+  sensitive   = true
 }
 
 variable "instance_class" {
-  type    = string
-  default = "db.t4g.micro"
+  description = "RDS instance type."
+  type        = string
+  default     = "db.t3.micro"
 }
 
 variable "allocated_storage" {
-  type    = number
-  default = 20
+  description = "Storage size in GB."
+  type        = number
+  default     = 20
+}
+
+variable "multi_az" {
+  description = "Enable Multi-AZ."
+  type        = bool
+  default     = false
 }
 
 variable "common_tags" {
-  type    = map(string)
-  default = {}
+  description = "Common tags."
+  type        = map(string)
+  default     = {}
 }
