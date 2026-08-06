@@ -1,0 +1,64 @@
+variable "project_name" {
+  description = "Project name."
+  type        = string
+}
+
+variable "environment" {
+  description = "Deployment environment."
+  type        = string
+}
+
+variable "vpc_id" {
+  description = "VPC ID."
+  type        = string
+}
+
+variable "private_subnet_ids" {
+  description = "Private database subnet IDs."
+  type        = list(string)
+}
+
+variable "database_security_group_ids" {
+  description = "Database security group IDs."
+  type        = list(string)
+}
+
+variable "db_name" {
+  description = "Database name."
+  type        = string
+}
+
+variable "db_username" {
+  description = "Master username."
+  type        = string
+}
+
+variable "db_password" {
+  description = "Master password."
+  type        = string
+  sensitive   = true
+}
+
+variable "instance_class" {
+  description = "RDS instance type."
+  type        = string
+  default     = "db.t3.micro"
+}
+
+variable "allocated_storage" {
+  description = "Storage size in GB."
+  type        = number
+  default     = 20
+}
+
+variable "multi_az" {
+  description = "Enable Multi-AZ."
+  type        = bool
+  default     = false
+}
+
+variable "common_tags" {
+  description = "Common tags."
+  type        = map(string)
+  default     = {}
+}

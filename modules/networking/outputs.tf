@@ -1,0 +1,49 @@
+output "vpc_id" {
+  description = "VPC ID"
+  value       = aws_vpc.this.id
+}
+
+output "vpc_arn" {
+  description = "VPC ARN"
+  value       = aws_vpc.this.arn
+}
+
+output "vpc_cidr" {
+  description = "VPC CIDR"
+  value       = aws_vpc.this.cidr_block
+}
+
+output "public_subnet_ids" {
+  description = "Public Subnet IDs"
+  value       = aws_subnet.public[*].id
+}
+
+output "private_app_subnet_ids" {
+  description = "Private Application Subnet IDs"
+  value       = aws_subnet.private_app[*].id
+}
+
+output "private_db_subnet_ids" {
+  description = "Private Database Subnet IDs"
+  value       = aws_subnet.private_db[*].id
+}
+
+output "internet_gateway_id" {
+  description = "Internet Gateway ID"
+  value       = aws_internet_gateway.this.id
+}
+
+output "nat_gateway_id" {
+  description = "NAT Gateway ID"
+  value       = try(aws_nat_gateway.this[0].id, null)
+}
+
+output "public_route_table_id" {
+  description = "Public Route Table ID"
+  value       = aws_route_table.public.id
+}
+
+output "private_route_table_id" {
+  description = "Private Route Table ID"
+  value       = aws_route_table.private.id
+}
